@@ -1,0 +1,17 @@
+{
+  "name": "footballkik",
+  "version": "1.0.0",
+  "description": "A chat application built with Node, MongoDB, Express, and Socket.IO",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": "brehar/footballkik",
+  "author": "Brett Hartman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
