@@ -13,7 +13,7 @@ const passport = require('passport');
 const container = require('./container');
 const config = require('./config');
 
-container.resolve(function(users) {
+container.resolve(function(users, _) {
 	mongoose.Promise = global.Promise;
 
 	mongoose.connect(config.MONGODB_URI, { useMongoClient: true }, function() {
@@ -63,5 +63,7 @@ container.resolve(function(users) {
 		app.use(flash());
 		app.use(passport.initialize());
 		app.use(passport.session());
+
+		app.locals._ = _;
 	}
 });

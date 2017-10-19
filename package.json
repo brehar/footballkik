@@ -20,7 +20,7 @@
     "express": "^4.16.2",
     "express-promise-router": "^2.0.0",
     "express-session": "^1.15.6",
-    "express-validator": "^4.2.1",
+    "express-validator": "^3.2.1",
     "lodash": "^4.17.4",
     "mongoose": "^4.12.3",
     "passport": "^0.4.0",
