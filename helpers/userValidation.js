@@ -26,6 +26,31 @@ module.exports = function() {
 				.catch(err => {
 					return next();
 				});
+		},
+		loginValidation: (req, res, next) => {
+			req
+				.getValidationResult()
+				.then(result => {
+					const errors = result.array();
+					let messages = [];
+
+					errors.forEach(error => {
+						messages.push(error.msg);
+					});
+
+					req.flash('error', messages);
+					res.redirect('/');
+				})
+				.catch(err => {
+					return next();
+				});
+		},
+		checkAuthStatus: (req, res, next) => {
+			if (!req.isAuthenticated()) {
+				res.redirect('/');
+			} else {
+				next();
+			}
 		}
 	};
 };

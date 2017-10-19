@@ -45,3 +45,31 @@ passport.use(
 		}
 	)
 );
+
+passport.use(
+	'local.login',
+	new LocalStrategy(
+		{
+			usernameField: 'email',
+			passwordField: 'password',
+			passReqToCallback: true
+		},
+		(req, email, password, done) => {
+			User.findOne({ email }, (err, user) => {
+				if (err) {
+					return done(err);
+				}
+
+				let messages = [];
+
+				if (!user || !user.validatePassword(password)) {
+					messages.push('Invalid login credentials. Please try again.');
+
+					return done(null, false, req.flash('error', messages));
+				}
+
+				return done(null, user);
+			});
+		}
+	)
+);
