@@ -16,11 +16,22 @@ container.resolve(function(users) {
 		server.listen(PORT, function() {
 			console.log(`Listening on port ${PORT}...`);
 		});
+
+		configureExpress(app);
+
+		const router = require('express-promise-router')();
+
+		users.setRouting(router);
+
+		app.use(router);
 	}
 
-	const router = require('express-promise-router')();
+	function configureExpress(app) {
+		app.use(express.static('public'));
 
-	users.setRouting(router);
+		app.set('view engine', 'ejs');
 
-	app.use(router);
+		app.use(bodyParser.json());
+		app.use(bodyParser.urlencoded({ extended: true }));
+	}
 });
