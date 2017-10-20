@@ -18,3 +18,11 @@ body {
 .fb-icon:hover {
     background-color: #5674B3;
 }
+
+.google-icon {
+    background-color: #CF4332;
+}
+
+.google-icon:hover {
+    background-color: #E95D4C;
+}

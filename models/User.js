@@ -32,9 +32,6 @@ const userSchema = mongoose.Schema({
 	google: {
 		type: String,
 		default: ''
-	},
-	googleTokens: {
-		type: Array
 	}
 });
 
