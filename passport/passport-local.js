@@ -33,7 +33,7 @@ passport.use(
 					return done(null, false, req.flash('error', 'A user with that e-mail address already exists.'));
 				}
 
-				const newUser = new User();
+				let newUser = new User();
 				newUser.username = req.body.username;
 				newUser.email = req.body.email;
 				newUser.password = newUser.encryptPassword(req.body.password);

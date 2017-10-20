@@ -46,7 +46,7 @@ module.exports = function() {
 				});
 		},
 		checkAuthStatus: (req, res, next) => {
-			if (!req.isAuthenticated()) {
+			if (!req.isAuthenticated() || !req.user) {
 				res.redirect('/');
 			} else {
 				next();
