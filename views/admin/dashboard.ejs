@@ -26,7 +26,7 @@
         </nav>
         <div class="container">
             <div class="row">
-                <form class="col s12">
+                <form action="/dashboard" method="post" class="col s12">
                     <h2 class="center-align">Admin Dashboard</h2>
                     <div class="row">
                         <div class="input-field col s6 offset-s3">
@@ -47,14 +47,21 @@
                                 <input type="file" class="upload-input" name="upload" />
                             </div>
                             <div class="file-path-wrapper">
-                                <input type="text" class="file-path validate" />
+                                <input type="text" class="file-path validate" name="imagename" />
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row upload-button-container">
                         <div class="col s6 offset-s3 center-align">
                             <button class="btn waves-effect waves-light upload-button" type="button">Upload File
                                 <i class="material-icons right">cloud_upload</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row submit-button-container">
+                        <div class="col s6 offset-s3 center-align">
+                            <button class="btn waves-effect waves-light" type="submit">Create Club
+                                <i class="material-icons right">send</i>
                             </button>
                         </div>
                     </div>

@@ -2,6 +2,9 @@ $(document).ready(function() {
 	$('.button-collapse').sideNav();
 
 	let $uploadInput = $('.upload-input');
+	let $uploadContainer = $('.upload-container');
+	let $submitButtonContainer = $('.submit-button-container');
+	let $uploadButtonContainer = $('.upload-button-container');
 
 	$('.upload-button').on('click', function() {
 		$uploadInput.click();
@@ -19,7 +22,11 @@ $(document).ready(function() {
 				processData: false,
 				contentType: false,
 				success: function() {
-					$uploadInput.val('');
+					$uploadContainer.show();
+					// $('.file-path').prop('disabled', true);
+					// $uploadInput.prop('disabled', true);
+					$submitButtonContainer.show();
+					$uploadButtonContainer.hide();
 				}
 			});
 		}

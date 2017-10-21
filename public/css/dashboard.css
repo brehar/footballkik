@@ -5,3 +5,7 @@ body {
 .upload-container {
     display: none;
 }
+
+.submit-button-container {
+    display: none;
+}
