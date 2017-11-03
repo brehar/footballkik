@@ -5,6 +5,34 @@ body {
     background: #eeeeee;
 }
 
+.navbar {
+    background-color: #4aa1f3;
+}
+
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #FFFFFF !important;
+    background-color: #4aa1f3 !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff !important;
+    background-color: #4aa1f3 !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff !important;
+    background-color: #4aa1f3 !important;
+}
+
 #custom-search-input {
     background: #e8e6e7 none repeat scroll 0 0;
     margin: 0;
@@ -73,4 +101,22 @@ body {
 .search-style {
     width: 50%;
     margin: 0 auto;
+}
+
+.add-apply {
+    background-color: #4aa1f3;
+    width: 100%;
+    text-shadow: none;
+    color: #FFFFFF !important;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.add-fav {
+    background-color: #4aa1f3;
+    width: 100%;
+    text-shadow: none;
+    color: #FFFFFF !important;
+    font-weight: bold;
+    padding: 5px 2px 5px 2px;
 }
