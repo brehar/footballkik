@@ -12,10 +12,24 @@ module.exports = function(userValidation, async, Club, _) {
 						Club.find({}, (err, result) => {
 							callback(err, result);
 						});
+					},
+					function(callback) {
+						Club.aggregate(
+							{
+								$group: {
+									_id: '$country'
+								}
+							},
+							(err, newResult) => {
+								callback(err, newResult);
+							}
+						);
 					}
 				],
 				(err, results) => {
 					const res1 = results[0];
+					const res2 = results[1];
+
 					const chunkSize = 3;
 					let dataChunk = [];
 
@@ -23,7 +37,9 @@ module.exports = function(userValidation, async, Club, _) {
 						dataChunk.push(res1.slice(i, i + chunkSize));
 					}
 
-					res.render('home', { title: 'Footballkik | Home', data: dataChunk });
+					const countrySort = _.sortBy(res2, '_id');
+
+					res.render('home', { title: 'Footballkik | Home', data: dataChunk, countries: countrySort });
 				}
 			);
 		}
