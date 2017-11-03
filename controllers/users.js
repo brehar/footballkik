@@ -5,7 +5,6 @@ module.exports = function(_, passport, userValidation) {
 		setRouting: function(router) {
 			router.get('/', this.getIndexPage);
 			router.get('/signup', this.getSignupPage);
-			router.get('/home', userValidation.checkAuthStatus, this.getHomePage);
 			router.get('/auth/facebook', this.getFacebookLogin);
 			router.get('/auth/facebook/callback', this.getFacebookCallback);
 			router.get('/auth/google', this.getGoogleLogin);
@@ -31,9 +30,6 @@ module.exports = function(_, passport, userValidation) {
 				messages: errors,
 				hasErrors: errors.length > 0
 			});
-		},
-		getHomePage: function(req, res) {
-			return res.render('home');
 		},
 		getFacebookLogin: passport.authenticate('facebook', {
 			scope: 'email'

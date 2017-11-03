@@ -13,7 +13,7 @@ const passport = require('passport');
 const container = require('./container');
 const config = require('./config');
 
-container.resolve(function(users, _, admin) {
+container.resolve(function(users, _, admin, home) {
 	mongoose.Promise = global.Promise;
 
 	mongoose.connect(config.MONGODB_URI, { useMongoClient: true }, function() {
@@ -37,6 +37,7 @@ container.resolve(function(users, _, admin) {
 
 		users.setRouting(router);
 		admin.setRouting(router);
+		home.setRouting(router);
 
 		app.use(router);
 	}

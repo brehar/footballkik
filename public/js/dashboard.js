@@ -23,8 +23,6 @@ $(document).ready(function() {
 				contentType: false,
 				success: function() {
 					$uploadContainer.show();
-					// $('.file-path').prop('disabled', true);
-					// $uploadInput.prop('disabled', true);
 					$submitButtonContainer.show();
 					$uploadButtonContainer.hide();
 				}
