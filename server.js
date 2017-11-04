@@ -13,6 +13,7 @@ const socketIO = require('socket.io');
 
 const container = require('./container');
 const config = require('./config');
+const { Users } = require('./helpers/UsersClass');
 
 container.resolve(function(users, _, admin, home, group) {
 	mongoose.Promise = global.Promise;
@@ -35,7 +36,7 @@ container.resolve(function(users, _, admin, home, group) {
 
 		configureExpress(app);
 
-		require('./socket/groupchat')(io);
+		require('./socket/groupchat')(io, Users);
 
 		const router = require('express-promise-router')();
 

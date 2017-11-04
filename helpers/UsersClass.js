@@ -8,6 +8,24 @@ class Users {
 		this.users.push(user);
 		return user;
 	}
+
+	removeUser(id) {
+		const user = this.getUser(id);
+
+		if (user) {
+			this.users = this.users.filter(user => user.id !== id);
+		}
+
+		return user;
+	}
+
+	getUser(id) {
+		return this.users.filter(user => user.id === id)[0];
+	}
+
+	getUsersList(room) {
+		return this.users.filter(user => user.room === room).map(user => user.name);
+	}
 }
 
 module.exports = { Users };
